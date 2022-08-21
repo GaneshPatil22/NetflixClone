@@ -20,6 +20,7 @@
 		0978297628B022A600593451 /* ReuseableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297528B022A600593451 /* ReuseableView.swift */; };
 		0978297928B0233800593451 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297828B0233800593451 /* UITableView+.swift */; };
 		0978297B28B0261700593451 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297A28B0261700593451 /* UICollectionView+.swift */; };
+		0978297D28B26A0300593451 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297C28B26A0300593451 /* HeroHeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0978297528B022A600593451 /* ReuseableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseableView.swift; sourceTree = "<group>"; };
 		0978297828B0233800593451 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		0978297A28B0261700593451 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		0978297C28B26A0300593451 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0978297228B021C900593451 /* CollectionViewTableViewCell.swift */,
+				0978297C28B26A0300593451 /* HeroHeaderUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				0978296C28B01C4C00593451 /* DownloadViewController.swift in Sources */,
 				0978296828B01C0400593451 /* UpcommingViewController.swift in Sources */,
 				09107D9528B018C30042FBB3 /* SceneDelegate.swift in Sources */,
+				0978297D28B26A0300593451 /* HeroHeaderUIView.swift in Sources */,
 				0978297628B022A600593451 /* ReuseableView.swift in Sources */,
 				0978296628B01BDA00593451 /* HomeViewController.swift in Sources */,
 			);
