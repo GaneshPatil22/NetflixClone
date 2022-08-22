@@ -21,6 +21,12 @@
 		0978297928B0233800593451 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297828B0233800593451 /* UITableView+.swift */; };
 		0978297B28B0261700593451 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297A28B0261700593451 /* UICollectionView+.swift */; };
 		0978297D28B26A0300593451 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978297C28B26A0300593451 /* HeroHeaderUIView.swift */; };
+		09933EFE28B3DFE70081B770 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933EFD28B3DFE70081B770 /* APICaller.swift */; };
+		09933F0828B3FA6E0081B770 /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0728B3FA6E0081B770 /* APILoader.swift */; };
+		09933F0A28B3FAD30081B770 /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0928B3FAD30081B770 /* ServiceConstants.swift */; };
+		09933F0C28B3FB190081B770 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0B28B3FB190081B770 /* SharedData.swift */; };
+		09933F0E28B3FB4C0081B770 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0D28B3FB4C0081B770 /* AppHelper.swift */; };
+		09933F1028B3FB830081B770 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0F28B3FB830081B770 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,12 @@
 		0978297828B0233800593451 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		0978297A28B0261700593451 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		0978297C28B26A0300593451 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		09933EFD28B3DFE70081B770 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		09933F0728B3FA6E0081B770 /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
+		09933F0928B3FAD30081B770 /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
+		09933F0B28B3FB190081B770 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		09933F0D28B3FB4C0081B770 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		09933F0F28B3FB830081B770 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +146,7 @@
 		0978297128B0218300593451 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				09933EFF28B3E1F70081B770 /* NetworkLayer */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -153,6 +166,19 @@
 				0978297A28B0261700593451 /* UICollectionView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		09933EFF28B3E1F70081B770 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				09933EFD28B3DFE70081B770 /* APICaller.swift */,
+				09933F0728B3FA6E0081B770 /* APILoader.swift */,
+				09933F0928B3FAD30081B770 /* ServiceConstants.swift */,
+				09933F0B28B3FB190081B770 /* SharedData.swift */,
+				09933F0D28B3FB4C0081B770 /* AppHelper.swift */,
+				09933F0F28B3FB830081B770 /* Reachability.swift */,
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,14 +253,20 @@
 			files = (
 				0978296A28B01C3100593451 /* SearchViewController.swift in Sources */,
 				09107D9728B018C30042FBB3 /* MainTabBarViewController.swift in Sources */,
+				09933EFE28B3DFE70081B770 /* APICaller.swift in Sources */,
+				09933F0A28B3FAD30081B770 /* ServiceConstants.swift in Sources */,
 				0978297B28B0261700593451 /* UICollectionView+.swift in Sources */,
 				0978297328B021C900593451 /* CollectionViewTableViewCell.swift in Sources */,
 				0978297928B0233800593451 /* UITableView+.swift in Sources */,
 				09107D9328B018C30042FBB3 /* AppDelegate.swift in Sources */,
 				0978296C28B01C4C00593451 /* DownloadViewController.swift in Sources */,
 				0978296828B01C0400593451 /* UpcommingViewController.swift in Sources */,
+				09933F0828B3FA6E0081B770 /* APILoader.swift in Sources */,
 				09107D9528B018C30042FBB3 /* SceneDelegate.swift in Sources */,
+				09933F0C28B3FB190081B770 /* SharedData.swift in Sources */,
 				0978297D28B26A0300593451 /* HeroHeaderUIView.swift in Sources */,
+				09933F1028B3FB830081B770 /* Reachability.swift in Sources */,
+				09933F0E28B3FB4C0081B770 /* AppHelper.swift in Sources */,
 				0978297628B022A600593451 /* ReuseableView.swift in Sources */,
 				0978296628B01BDA00593451 /* HomeViewController.swift in Sources */,
 			);
