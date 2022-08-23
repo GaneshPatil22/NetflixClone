@@ -17,10 +17,14 @@ enum Environment {
         return "\(urlProtocol())://\(subdomain()).\(domain())\(route())"
     }
 
+    func queryParamter() -> String {
+        return "?api_key=3095bdc20178d76df9839c0dc81c33ec"
+    }
+
     func urlProtocol() -> String {
         switch self {
         case .production:
-            return "https"
+            return "http"
         default:
             return "http"
         }
@@ -29,23 +33,19 @@ enum Environment {
     func domain() -> String {
         switch self {
         case .development, .staging, .production:
-            return "domain.com"
+            return "org"
         }
     }
 
     func subdomain() -> String {
         switch self {
-        case .development:
-            return "dev.subdomain"
-        case .staging:
-            return "test.subdomain"
-        case .production:
-            return "prod.subdomain"
+        case .development, .staging, .production:
+            return "api.themoviedb"
         }
     }
 
     func route() -> String {
-        return "/api/v1"
+        return "/3"
     }
 
 }
@@ -65,33 +65,38 @@ let environment: Environment = Environment.staging
 #endif
 
 let baseUrl = environment.baseURL()
+let apiToken = environment.queryParamter()
 
 struct Path {
 
-    var registration: String { return "\(baseUrl)/registration" }
+    var trendingMovies: String { return "\(baseUrl)/trending/all/day\(apiToken)"}
 
-    var login: String { return "\(baseUrl)/login" }
 
-    var forgotPassword: String { return "\(baseUrl)/forgotPassword" }
 
-    var logout: String { return "\(baseUrl)/logout" }
-
-    struct User {
-
-        var getProfile: String { return "\(baseUrl)/profile" }
-
-        var deleteUser: (Int) -> String = { userID in
-            return "\(baseUrl)/profile/\(String(userID))"
-        }
-
-        struct Task {
-
-            var getTasks: String { return "\(baseUrl)/tasks" }
-
-            var getTaskDetail: (Int, Int) -> String = { userID, taskID in
-                return "\(baseUrl)/profile/\(String(userID))/task/\(String(taskID))"
-            }
-
-        }
-    }
+//    var registration: String { return "\(baseUrl)/registration" }
+//
+//    var login: String { return "\(baseUrl)/login" }
+//
+//    var forgotPassword: String { return "\(baseUrl)/forgotPassword" }
+//
+//    var logout: String { return "\(baseUrl)/logout" }
+//
+//    struct User {
+//
+//        var getProfile: String { return "\(baseUrl)/profile" }
+//
+//        var deleteUser: (Int) -> String = { userID in
+//            return "\(baseUrl)/profile/\(String(userID))"
+//        }
+//
+//        struct Task {
+//
+//            var getTasks: String { return "\(baseUrl)/tasks" }
+//
+//            var getTaskDetail: (Int, Int) -> String = { userID, taskID in
+//                return "\(baseUrl)/profile/\(String(userID))/task/\(String(taskID))"
+//            }
+//
+//        }
+//    }
 }

@@ -27,6 +27,10 @@
 		09933F0C28B3FB190081B770 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0B28B3FB190081B770 /* SharedData.swift */; };
 		09933F0E28B3FB4C0081B770 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0D28B3FB4C0081B770 /* AppHelper.swift */; };
 		09933F1028B3FB830081B770 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F0F28B3FB830081B770 /* Reachability.swift */; };
+		09933F1328B4AFAE0081B770 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F1228B4AFAE0081B770 /* HomeService.swift */; };
+		09933F1628B4B1410081B770 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F1528B4B1410081B770 /* MovieModel.swift */; };
+		09933F1828B4B2350081B770 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F1728B4B2350081B770 /* HomeAPI.swift */; };
+		09933F1A28B4B4660081B770 /* HomeBusinessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F1928B4B4660081B770 /* HomeBusinessLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		09933F0B28B3FB190081B770 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		09933F0D28B3FB4C0081B770 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		09933F0F28B3FB830081B770 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		09933F1228B4AFAE0081B770 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		09933F1528B4B1410081B770 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		09933F1728B4B2350081B770 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
+		09933F1928B4B4660081B770 /* HomeBusinessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBusinessLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 		0978296F28B0214300593451 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09933F1528B4B1410081B770 /* MovieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 		0978297128B0218300593451 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				09933F1128B4AF9E0081B770 /* Services */,
 				09933EFF28B3E1F70081B770 /* NetworkLayer */,
 			);
 			path = Managers;
@@ -179,6 +189,24 @@
 				09933F0F28B3FB830081B770 /* Reachability.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		09933F1128B4AF9E0081B770 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				09933F1B28B4B4730081B770 /* Home */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		09933F1B28B4B4730081B770 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				09933F1228B4AFAE0081B770 /* HomeService.swift */,
+				09933F1728B4B2350081B770 /* HomeAPI.swift */,
+				09933F1928B4B4660081B770 /* HomeBusinessLayer.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,12 +286,16 @@
 				0978297B28B0261700593451 /* UICollectionView+.swift in Sources */,
 				0978297328B021C900593451 /* CollectionViewTableViewCell.swift in Sources */,
 				0978297928B0233800593451 /* UITableView+.swift in Sources */,
+				09933F1828B4B2350081B770 /* HomeAPI.swift in Sources */,
+				09933F1328B4AFAE0081B770 /* HomeService.swift in Sources */,
 				09107D9328B018C30042FBB3 /* AppDelegate.swift in Sources */,
 				0978296C28B01C4C00593451 /* DownloadViewController.swift in Sources */,
 				0978296828B01C0400593451 /* UpcommingViewController.swift in Sources */,
 				09933F0828B3FA6E0081B770 /* APILoader.swift in Sources */,
+				09933F1628B4B1410081B770 /* MovieModel.swift in Sources */,
 				09107D9528B018C30042FBB3 /* SceneDelegate.swift in Sources */,
 				09933F0C28B3FB190081B770 /* SharedData.swift in Sources */,
+				09933F1A28B4B4660081B770 /* HomeBusinessLayer.swift in Sources */,
 				0978297D28B26A0300593451 /* HeroHeaderUIView.swift in Sources */,
 				09933F1028B3FB830081B770 /* Reachability.swift in Sources */,
 				09933F0E28B3FB4C0081B770 /* AppHelper.swift in Sources */,

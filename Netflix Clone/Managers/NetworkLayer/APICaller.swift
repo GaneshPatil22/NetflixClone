@@ -89,7 +89,7 @@ extension RequestHandler {
 
 // MARK: - Response
 protocol Response: Codable {
-    var httpStatus: Int { set get }
+    
 }
 
 extension ResponseHandler {
@@ -99,7 +99,7 @@ extension ResponseHandler {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
-        if let body = try? jsonDecoder.decode(T.self, from: data), body.httpStatus == 200 {
+        if let body = try? jsonDecoder.decode(T.self, from: data) {
             return body
         } else if let errorResponse = try? jsonDecoder.decode(ServiceError.self, from: data) {
             throw errorResponse

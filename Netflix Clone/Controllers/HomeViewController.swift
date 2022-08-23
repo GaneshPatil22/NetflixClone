@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
         return tbl
     }()
 
+    var homeBusiness = HomeBusinessLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -25,6 +27,9 @@ class HomeViewController: UIViewController {
         self.setUpDelegates()
         self.configureNavBar()
         self.setUpHeaderView()
+        homeBusiness.getTrendingMovies { model, error in
+
+        }
     }
 
     override func viewDidLayoutSubviews() {
