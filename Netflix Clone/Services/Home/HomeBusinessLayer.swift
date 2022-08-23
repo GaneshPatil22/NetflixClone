@@ -12,50 +12,50 @@ class HomeBusinessLayer {
     private lazy var homeService = HomeService()
 
     // MARK: -
-    func getTrendingMovies(completion:@escaping ((_ model: TrendingMoviesModel?, _ error: Error?) -> ()) ) {
+    func getTrendingMovies(completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
         homeService.fetchTrendingMovies() { (response, error) in
             if let response = response {
-                completion(response, nil)
+                completion(TrendingMovieViewModel(model: response), nil)
             } else {
                 completion(nil, error)
             }
         }
     }
 
-    func getTrendingTVShows(completion:@escaping ((_ model: TrendingMoviesModel?, _ error: Error?) -> ()) ) {
+    func getTrendingTVShows(completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
         homeService.fetchTrendingTVShows() { (response, error) in
             if let response = response {
-                completion(response, nil)
+                completion(TrendingMovieViewModel(model: response), nil)
             } else {
                 completion(nil, error)
             }
         }
     }
 
-    func getUpcommingMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMoviesModel?, _ error: Error?) -> ()) ) {
+    func getUpcommingMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
         homeService.fetchUpcommingMovies(queryParameter: queryParameter) { (response, error) in
             if let response = response {
-                completion(response, nil)
+                completion(TrendingMovieViewModel(model: response), nil)
             } else {
                 completion(nil, error)
             }
         }
     }
 
-    func getPopularMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMoviesModel?, _ error: Error?) -> ()) ) {
+    func getPopularMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
         homeService.fetchPopularMovies(queryParameter: queryParameter) { (response, error) in
             if let response = response {
-                completion(response, nil)
+                completion(TrendingMovieViewModel(model: response), nil)
             } else {
                 completion(nil, error)
             }
         }
     }
 
-    func getTopRatedMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMoviesModel?, _ error: Error?) -> ()) ) {
+    func getTopRatedMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
         homeService.fetchTopRatedMovies(queryParameter: queryParameter) { (response, error) in
             if let response = response {
-                completion(response, nil)
+                completion(TrendingMovieViewModel(model: response), nil)
             } else {
                 completion(nil, error)
             }

@@ -14,10 +14,12 @@ class CollectionViewTableViewCell: UITableViewCell, ReusableView {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 140, height: 200)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.register(UICollectionViewCell.self)
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(TitleCollectionViewCell.self)
+//        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
+
+    var showsOrMoviesVM: [MovieViewModel] = []
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,17 +43,22 @@ class CollectionViewTableViewCell: UITableViewCell, ReusableView {
         self.collectionView.frame = self.contentView.bounds
     }
 
+    func setupMoviesData(with vm: [MovieViewModel]) {
+        self.showsOrMoviesVM = vm
+        self.collectionView.reloadData()
+    }
+
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.showsOrMoviesVM.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green
+        let cell: TitleCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.configure(with:  self.showsOrMoviesVM[indexPath.row].getPosterImageURL())
         return cell
     }
 }

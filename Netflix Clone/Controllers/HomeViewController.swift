@@ -7,10 +7,22 @@
 
 import UIKit
 
+enum Sections: String {
+    case TrendingMovies = "Trending Movies"
+    case TrendingTV = "Trending Tv"
+    case Popular = "Popular"
+    case UpcommingMovies = "Upcomming Movies"
+    case TopRated = "Top Rated"
+
+    static func allCases() -> [Sections] {
+        return [.TrendingMovies, .TrendingTV, .Popular, .UpcommingMovies, .TopRated]
+    }
+}
+
 class HomeViewController: UIViewController {
 
-    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending Tv", "Upcomming Movies ", "Top Rated"]
-
+    let sectionTitles: [String] = Sections.allCases().map { $0.rawValue }
+    var vmDict: [Sections: TrendingMovieViewModel] = [:]
     let homeTableView: UITableView = {
         let tbl = UITableView(frame: .zero, style: .grouped)
         tbl.register(CollectionViewTableViewCell.self)
@@ -69,64 +81,42 @@ extension HomeViewController {
 
     private func fetchTrendingMovies() {
         homeBusiness.getTrendingMovies { model, error in
-            if let token = model {
-                print(token)
-            } else if let error = error as? NetworkError {
-                print(error.message)
-            } else if let error = error as? ServiceError {
-                print(error.httpStatus, error.httpStatus)
-            } else if let error = error as? UnknownParseError {
-                print(error.localizedDescription)
-            }
+            self.updateSection(with: .TrendingMovies, model: model, error: error)
         }
     }
 
     private func fetchTrendingTVShows() {
         homeBusiness.getTrendingTVShows() { model, error in
-            if let token = model {
-                print(token)
-            } else if let error = error as? NetworkError {
-                print(error.message)
-            } else if let error = error as? ServiceError {
-                print(error.httpStatus, error.httpStatus)
-            } else if let error = error as? UnknownParseError {
-                print(error.localizedDescription)
-            }
+            self.updateSection(with: .TrendingTV, model: model, error: error)
         }
     }
 
     private func fetchUpcommingMoview() {
         homeBusiness.getUpcommingMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
-            if let token = model {
-                print(token)
-            } else if let error = error as? NetworkError {
-                print(error.message)
-            } else if let error = error as? ServiceError {
-                print(error.httpStatus, error.httpStatus)
-            } else if let error = error as? UnknownParseError {
-                print(error.localizedDescription)
-            }
+            self.updateSection(with: .UpcommingMovies, model: model, error: error)
         }
     }
 
     private func fetchPopularMoview() {
         homeBusiness.getPopularMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
-            if let token = model {
-                print(token)
-            } else if let error = error as? NetworkError {
-                print(error.message)
-            } else if let error = error as? ServiceError {
-                print(error.httpStatus, error.httpStatus)
-            } else if let error = error as? UnknownParseError {
-                print(error.localizedDescription)
-            }
+            self.updateSection(with: .Popular, model: model, error: error)
         }
     }
 
     private func fetchTopRatedMovies() {
         homeBusiness.getTopRatedMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
+            self.updateSection(with: .TopRated, model: model, error: error)
+        }
+    }
+
+    private func updateSection(with type: Sections, model: TrendingMovieViewModel?, error: Error?) {
+        DispatchQueue.main.async {
             if let token = model {
                 print(token)
+                self.vmDict[type] = token
+                if let index = self.sectionTitles.firstIndex(of: type.rawValue) {
+                    self.homeTableView.reloadSections(IndexSet(integer: index), with: .none)
+                }
             } else if let error = error as? NetworkError {
                 print(error.message)
             } else if let error = error as? ServiceError {
@@ -150,6 +140,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CollectionViewTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        if sectionTitles.count > indexPath.section, let sectionType = Sections.init(rawValue: self.sectionTitles[indexPath.section]), let vm = self.vmDict[sectionType] {
+            cell.setupMoviesData(with: vm.getAllMoviesOrShows())
+        }
         return cell
     }
 
