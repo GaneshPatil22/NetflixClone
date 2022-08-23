@@ -27,9 +27,11 @@ class HomeViewController: UIViewController {
         self.setUpDelegates()
         self.configureNavBar()
         self.setUpHeaderView()
-        homeBusiness.getTrendingMovies { model, error in
-
-        }
+        self.fetchTrendingMovies()
+        self.fetchUpcommingMoview()
+        self.fetchTrendingTVShows()
+        self.fetchPopularMoview()
+        self.fetchTopRatedMovies()
     }
 
     override func viewDidLayoutSubviews() {
@@ -64,6 +66,76 @@ extension HomeViewController {
         ]
         navigationController?.navigationBar.tintColor = .white
     }
+
+    private func fetchTrendingMovies() {
+        homeBusiness.getTrendingMovies { model, error in
+            if let token = model {
+                print(token)
+            } else if let error = error as? NetworkError {
+                print(error.message)
+            } else if let error = error as? ServiceError {
+                print(error.httpStatus, error.httpStatus)
+            } else if let error = error as? UnknownParseError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func fetchTrendingTVShows() {
+        homeBusiness.getTrendingTVShows() { model, error in
+            if let token = model {
+                print(token)
+            } else if let error = error as? NetworkError {
+                print(error.message)
+            } else if let error = error as? ServiceError {
+                print(error.httpStatus, error.httpStatus)
+            } else if let error = error as? UnknownParseError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func fetchUpcommingMoview() {
+        homeBusiness.getUpcommingMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
+            if let token = model {
+                print(token)
+            } else if let error = error as? NetworkError {
+                print(error.message)
+            } else if let error = error as? ServiceError {
+                print(error.httpStatus, error.httpStatus)
+            } else if let error = error as? UnknownParseError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func fetchPopularMoview() {
+        homeBusiness.getPopularMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
+            if let token = model {
+                print(token)
+            } else if let error = error as? NetworkError {
+                print(error.message)
+            } else if let error = error as? ServiceError {
+                print(error.httpStatus, error.httpStatus)
+            } else if let error = error as? UnknownParseError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func fetchTopRatedMovies() {
+        homeBusiness.getTopRatedMovies(queryParameter: ["language": "en-US", "page": "1"]) { model, error in
+            if let token = model {
+                print(token)
+            } else if let error = error as? NetworkError {
+                print(error.message)
+            } else if let error = error as? ServiceError {
+                print(error.httpStatus, error.httpStatus)
+            } else if let error = error as? UnknownParseError {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +150,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CollectionViewTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.textLabel?.text = "asd"
         return cell
     }
 
@@ -95,7 +166,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         headerView.textLabel?.frame = CGRect(x: headerView.bounds.origin.x + 20, y: headerView.bounds.origin.y, width: 100, height: headerView.bounds.height)
         headerView.textLabel?.textColor = .white
-        headerView.textLabel?.text = headerView.textLabel?.text?.lowercased()
+        headerView.textLabel?.text = headerView.textLabel?.text?.capitalizeFirstLetter()
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

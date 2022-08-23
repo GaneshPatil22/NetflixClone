@@ -21,6 +21,7 @@ class APILoader<T: APIHandler> {
     }
 
     func loadAPIRequest(requestData: T.RequestDataType,
+                        queryParameter: [String: String],
                         completionHandler: @escaping (T.ResponseDataType?, Error?) -> ()) {
         // check network status
         if reachibility.connection == .none {
@@ -28,8 +29,9 @@ class APILoader<T: APIHandler> {
         }
 
         // prepare url request
-        let urlRequest = apiRequest.makeRequest(from: requestData).urlRequest
+        let urlRequest = apiRequest.makeRequest(from: requestData, queryParameters: queryParameter).urlRequest
         // do session task
+        print("URL: \(urlRequest.url?.absoluteString ?? "")")
         urlSession.dataTask(with: urlRequest) { data, response, error in
             guard let data = data else { return completionHandler(nil, error) }
             // parse response
