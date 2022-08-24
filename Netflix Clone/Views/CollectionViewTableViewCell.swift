@@ -15,6 +15,7 @@ class CollectionViewTableViewCell: UITableViewCell, ReusableView {
         layout.itemSize = CGSize(width: 140, height: 200)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(TitleCollectionViewCell.self)
+        cv.showsHorizontalScrollIndicator = false
 //        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
@@ -60,5 +61,16 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         let cell: TitleCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.configure(with:  self.showsOrMoviesVM[indexPath.row].getPosterImageURL())
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions -> UIMenu? in
+            let action = UIAction(title: "Add To Watchlist", image: nil, identifier: .none) { action in
+            }
+            let action2 = UIAction(title: "Download", image: nil, identifier: .none) { action in
+            }
+            return UIMenu.init(title: "Action", children: [action, action2])
+        }
+        return configuration
     }
 }

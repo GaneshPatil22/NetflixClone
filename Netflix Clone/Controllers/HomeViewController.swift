@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
     let homeTableView: UITableView = {
         let tbl = UITableView(frame: .zero, style: .grouped)
         tbl.register(CollectionViewTableViewCell.self)
+        tbl.showsVerticalScrollIndicator = false
         return tbl
     }()
 
