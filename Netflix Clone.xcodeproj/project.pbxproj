@@ -36,6 +36,8 @@
 		09933F2228B4DDEA0081B770 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 09933F2128B4DDEA0081B770 /* SDWebImage */; };
 		09933F2428B4DDEA0081B770 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09933F2328B4DDEA0081B770 /* SDWebImageMapKit */; };
 		09933F2628B4E00A0081B770 /* TrendingMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2528B4E00A0081B770 /* TrendingMovieViewModel.swift */; };
+		09933F2928B641920081B770 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2828B641920081B770 /* ShimmerView.swift */; };
+		09933F2B28B6445D0081B770 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2A28B6445D0081B770 /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		09933F1C28B4C9AE0081B770 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		09933F1E28B4DCB70081B770 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		09933F2528B4E00A0081B770 /* TrendingMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewModel.swift; sourceTree = "<group>"; };
+		09933F2828B641920081B770 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
+		09933F2A28B6445D0081B770 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		09107D9128B018C30042FBB3 /* Netflix Clone */ = {
 			isa = PBXGroup;
 			children = (
+				09933F2728B641700081B770 /* CustomView */,
 				09933F1128B4AF9E0081B770 /* Services */,
 				0978297728B0231A00593451 /* Extension */,
 				0978297428B0222000593451 /* Protocols */,
@@ -187,6 +192,7 @@
 				0978297828B0233800593451 /* UITableView+.swift */,
 				0978297A28B0261700593451 /* UICollectionView+.swift */,
 				09933F1C28B4C9AE0081B770 /* String+.swift */,
+				09933F2A28B6445D0081B770 /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,6 +226,14 @@
 				09933F1928B4B4660081B770 /* HomeBusinessLayer.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		09933F2728B641700081B770 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				09933F2828B641920081B770 /* ShimmerView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,7 @@
 			files = (
 				09933F2628B4E00A0081B770 /* TrendingMovieViewModel.swift in Sources */,
 				0978296A28B01C3100593451 /* SearchViewController.swift in Sources */,
+				09933F2928B641920081B770 /* ShimmerView.swift in Sources */,
 				09107D9728B018C30042FBB3 /* MainTabBarViewController.swift in Sources */,
 				09933EFE28B3DFE70081B770 /* APICaller.swift in Sources */,
 				09933F0A28B3FAD30081B770 /* ServiceConstants.swift in Sources */,
@@ -315,6 +330,7 @@
 				0978296828B01C0400593451 /* UpcommingViewController.swift in Sources */,
 				09933F0828B3FA6E0081B770 /* APILoader.swift in Sources */,
 				09933F1628B4B1410081B770 /* TrendingMoviesModel.swift in Sources */,
+				09933F2B28B6445D0081B770 /* UIColor+.swift in Sources */,
 				09107D9528B018C30042FBB3 /* SceneDelegate.swift in Sources */,
 				09933F0C28B3FB190081B770 /* SharedData.swift in Sources */,
 				09933F1A28B4B4660081B770 /* HomeBusinessLayer.swift in Sources */,

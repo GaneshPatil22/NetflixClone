@@ -20,6 +20,7 @@ class TitleCollectionViewCell: UICollectionViewCell, ReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(posterImageView)
+        loadShimmer()
     }
 
     required init?(coder: NSCoder) {
@@ -35,6 +36,9 @@ class TitleCollectionViewCell: UICollectionViewCell, ReusableView {
         let imageURL = "http://image.tmdb.org/t/p/w500/\(model)"
         print("Image URL is: \(imageURL)")
         guard let url = URL(string: imageURL) else { return }
-        posterImageView.sd_setImage(with: url, completed: nil)
+        posterImageView.sd_imageTransition = SDWebImageTransition.flipFromRight;
+        posterImageView.sd_setImage(with: url) { [weak self] _, _, _, _ in
+            self?.removeShimmerView()
+        }
     }
 }

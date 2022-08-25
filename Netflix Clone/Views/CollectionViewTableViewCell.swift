@@ -54,12 +54,15 @@ class CollectionViewTableViewCell: UITableViewCell, ReusableView {
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.showsOrMoviesVM.count
+        let count = self.showsOrMoviesVM.count
+        return count == 0 ? 10 : count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: TitleCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.configure(with:  self.showsOrMoviesVM[indexPath.row].getPosterImageURL())
+        if self.showsOrMoviesVM.count > indexPath.row {
+            cell.configure(with:  self.showsOrMoviesVM[indexPath.row].getPosterImageURL())
+        }
         return cell
     }
 
