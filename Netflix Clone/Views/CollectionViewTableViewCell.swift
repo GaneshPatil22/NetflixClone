@@ -55,7 +55,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let count = self.showsOrMoviesVM.count
-        print(count)
         return count == 0 ? 10 : count
     }
 

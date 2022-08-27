@@ -61,4 +61,14 @@ class HomeBusinessLayer {
             }
         }
     }
+
+    func getDiscoverMovies(queryParameter: [String: String], completion:@escaping ((_ model: TrendingMovieViewModel?, _ error: Error?) -> ()) ) {
+        homeService.fetchDiscovergMovies(queryParameter: queryParameter) { (response, error) in
+            if let response = response {
+                completion(TrendingMovieViewModel(model: response), nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
 }

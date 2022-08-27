@@ -38,6 +38,8 @@
 		09933F2628B4E00A0081B770 /* TrendingMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2528B4E00A0081B770 /* TrendingMovieViewModel.swift */; };
 		09933F2928B641920081B770 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2828B641920081B770 /* ShimmerView.swift */; };
 		09933F2B28B6445D0081B770 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F2A28B6445D0081B770 /* UIColor+.swift */; };
+		09933F4D28B9EB820081B770 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F4C28B9EB820081B770 /* TitleTableViewCell.swift */; };
+		09933F4F28B9F7A20081B770 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09933F4E28B9F7A20081B770 /* SearchResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		09933F2528B4E00A0081B770 /* TrendingMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieViewModel.swift; sourceTree = "<group>"; };
 		09933F2828B641920081B770 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		09933F2A28B6445D0081B770 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		09933F4C28B9EB820081B770 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		09933F4E28B9F7A20081B770 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				0978296728B01C0400593451 /* UpcommingViewController.swift */,
 				0978296928B01C3100593451 /* SearchViewController.swift */,
 				0978296B28B01C4C00593451 /* DownloadViewController.swift */,
+				09933F4E28B9F7A20081B770 /* SearchResultViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				0978297228B021C900593451 /* CollectionViewTableViewCell.swift */,
 				0978297C28B26A0300593451 /* HeroHeaderUIView.swift */,
 				09933F1E28B4DCB70081B770 /* TitleCollectionViewCell.swift */,
+				09933F4C28B9EB820081B770 /* TitleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09933F4D28B9EB820081B770 /* TitleTableViewCell.swift in Sources */,
 				09933F2628B4E00A0081B770 /* TrendingMovieViewModel.swift in Sources */,
 				0978296A28B01C3100593451 /* SearchViewController.swift in Sources */,
 				09933F2928B641920081B770 /* ShimmerView.swift in Sources */,
@@ -328,6 +335,7 @@
 				09107D9328B018C30042FBB3 /* AppDelegate.swift in Sources */,
 				0978296C28B01C4C00593451 /* DownloadViewController.swift in Sources */,
 				0978296828B01C0400593451 /* UpcommingViewController.swift in Sources */,
+				09933F4F28B9F7A20081B770 /* SearchResultViewController.swift in Sources */,
 				09933F0828B3FA6E0081B770 /* APILoader.swift in Sources */,
 				09933F1628B4B1410081B770 /* TrendingMoviesModel.swift in Sources */,
 				09933F2B28B6445D0081B770 /* UIColor+.swift in Sources */,

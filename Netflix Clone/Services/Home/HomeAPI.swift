@@ -87,3 +87,19 @@ struct HomeTopRatedMovieAPI: APIHandler {
     }
 }
 
+struct HomeDiscoverMovieAPI: APIHandler {
+    func makeRequest(from parameters: [String: Any], queryParameters: [String: String]) -> Request {
+        let url = URL(string: Path().discoverMovies)
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "GET"
+        set(parameters, urlRequest: &urlRequest)
+        setQueryParameters(with: queryParameters, urlRequest: &urlRequest)
+        let request = Request(urlRequest: urlRequest, requestBuilder: DefaultRequest())
+        return request
+    }
+
+    func parseResponse(data: Data) throws -> TrendingMoviesModel {
+        return try defaultParseResponse(data: data)
+    }
+}
+

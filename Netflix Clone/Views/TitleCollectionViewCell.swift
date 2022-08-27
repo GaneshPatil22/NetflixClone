@@ -34,7 +34,6 @@ class TitleCollectionViewCell: UICollectionViewCell, ReusableView {
 
     public func configure(with model: String) {
         let imageURL = "http://image.tmdb.org/t/p/w500/\(model)"
-        print("Image URL is: \(imageURL)")
         guard let url = URL(string: imageURL) else { return }
         posterImageView.sd_imageTransition = SDWebImageTransition.flipFromRight;
         posterImageView.sd_setImage(with: url) { [weak self] _, _, _, _ in

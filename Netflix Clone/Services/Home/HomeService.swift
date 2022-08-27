@@ -65,4 +65,14 @@ class HomeService: HomeCallable {
             completion(result, error)
         }
     }
+
+    func fetchDiscovergMovies(queryParameter: [String: String], completion: @escaping (TrendingMoviesModel?, Error?) -> ()) {
+        let api = HomeDiscoverMovieAPI()
+        // api loader
+        let apiTaskLoader = APILoader(apiRequest: api)
+
+        apiTaskLoader.loadAPIRequest(requestData: [:], queryParameter: queryParameter) { (result, error) in
+            completion(result, error)
+        }
+    }
 }

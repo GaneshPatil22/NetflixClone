@@ -73,6 +73,7 @@ struct Path {
     var upcommingMovies: String { return "\(baseUrl)/movie/upcoming"}
     var popularMovies: String { return "\(baseUrl)/movie/popular"}
     var topRatedMovies: String { return "\(baseUrl)/movie/top_rated"}
+    var discoverMovies: String { return "\(baseUrl)/discover/movie"}
 
 //    var registration: String { return "\(baseUrl)/registration" }
 //

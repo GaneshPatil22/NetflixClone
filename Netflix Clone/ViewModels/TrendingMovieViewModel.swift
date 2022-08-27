@@ -27,4 +27,8 @@ struct MovieViewModel {
     func getPosterImageURL() -> String {
         return model.posterPath ?? ""
     }
+
+    func getMovieTitle() -> String {
+        return model.title ?? ""
+    }
 }
