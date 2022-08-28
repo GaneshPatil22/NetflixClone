@@ -40,21 +40,21 @@ class HomeViewController: UIViewController {
         self.setUpDelegates()
         self.configureNavBar()
         self.setUpHeaderView()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.fetchTrendingMovies()
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-//            self.fetchUpcommingMoview()
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-//            self.fetchTrendingTVShows()
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-//            self.fetchPopularMoview()
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.fetchTopRatedMovies()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.fetchTrendingMovies()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.fetchUpcommingMoview()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            self.fetchTrendingTVShows()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+            self.fetchPopularMoview()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.fetchTopRatedMovies()
+        }
     }
 
     override func viewDidLayoutSubviews() {

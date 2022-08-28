@@ -24,6 +24,14 @@ class TitleTableViewCell: UITableViewCell, ReusableView {
         return lbl
     }()
 
+    let playButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        btn.tintColor = .white
+        return btn
+    }()
+
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,6 +45,7 @@ class TitleTableViewCell: UITableViewCell, ReusableView {
     private func setUpUIElements() {
         contentView.addSubview(movieImgeView)
         contentView.addSubview(titleLable)
+        contentView.addSubview(playButton)
 
         let imageViewContraints = [
             movieImgeView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -47,13 +56,21 @@ class TitleTableViewCell: UITableViewCell, ReusableView {
 
         let titleLabelContraints = [
             titleLable.leadingAnchor.constraint(equalTo: movieImgeView.trailingAnchor, constant: 10),
-            titleLable.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             titleLable.centerYAnchor.constraint(equalTo: movieImgeView.centerYAnchor),
             titleLable.heightAnchor.constraint(equalToConstant: 30)
         ]
 
+        let playButtonContraints = [
+            playButton.leadingAnchor.constraint(equalTo: titleLable.trailingAnchor, constant: 10),
+            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            playButton.centerYAnchor.constraint(equalTo: movieImgeView.centerYAnchor),
+            playButton.heightAnchor.constraint(equalToConstant: 30),
+            playButton.widthAnchor.constraint(equalToConstant: 30)
+        ]
+
         NSLayoutConstraint.activate(imageViewContraints)
         NSLayoutConstraint.activate(titleLabelContraints)
+        NSLayoutConstraint.activate(playButtonContraints)
     }
 
     func setUpData(with model: MovieViewModel?) {
